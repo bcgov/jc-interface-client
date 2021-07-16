@@ -11,7 +11,8 @@ Generating Clients:
 	2. Download the latest NSwagStudio: https://github.com/RicoSuter/NSwag/wiki/NSwagStudio
 
 	Scripted version:
-	1. Run generate-jc-clients after adjusting the paths. It may take a while to run this script, let it run.
+	1. Copy over the new RAML's from the JC-Interface project (private repo) into API References
+	2. Run generate-jc-clients. It may take a while to run this script, let it run.
 
 	Manual: 
 	1.*** MAKE SURE YOU REMOVE THE baseUri from the RAML file ***
