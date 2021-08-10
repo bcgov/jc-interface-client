@@ -1,4 +1,4 @@
-echo "Ensure oas-raml-converter and nswag are installed globally."
+echo "Ensure oas-raml-converter, nswag, json2yaml are installed globally."
 input_raml_folder="./API References/"
 
 cd "${input_raml_folder}"
@@ -11,5 +11,6 @@ for filename in *.raml;
 		name=`echo "$filename" | cut -d'.' -f1`
 		echo "Converting $filename to $name-oas3.json"
         oas-raml-converter --from RAML --to OAS30 $filename > $name-oas3.json
-		nswag openapi2csclient /runtime:NetCore31 /input:$name-oas3.json /classname:${name}Client /namespace:JCCommon.Clients.$name /output:../Clients/${name}Client.cs /generateBaseUrlProperty:false /useBaseUrl:false /exposeJsonSerializerSettings:true /operationGenerationMode:SingleClientFromPathSegments
+		json2yaml ./$name-oas3.json > ./$name-oas3.yml
+		nswag openapi2csclient /runtime:NetCore31 /input:$name-oas3.yml /classname:${name}Client /namespace:JCCommon.Clients.$name /output:../Clients/${name}Client.cs /generateBaseUrlProperty:false /useBaseUrl:false /exposeJsonSerializerSettings:true /operationGenerationMode:SingleClientFromPathSegments
  done

@@ -10,7 +10,8 @@ Generating Clients:
 
 	Prep: 
 	1. Install oas-raml-converter globally: https://www.npmjs.com/package/oas-raml-converter 
-	2. Download the latest NSwagStudio: https://github.com/RicoSuter/NSwag/wiki/NSwagStudio
+	2. Install json2yaml globally: https://www.npmjs.com/package/json2yaml
+	3. Download the latest NSwagStudio: https://github.com/RicoSuter/NSwag/wiki/NSwagStudio
 
 	Scripted version:
 	1. Copy over the new RAML's from the JC-Interface project (private repo) into API References
