@@ -208,6 +208,8 @@
     /files/document: 
       get: 
         responses:
+          400:
+            description: Bad request.
           404:
             description: Document was not found.
           500:
@@ -264,6 +266,14 @@
             description: "Physical File Id (CEIS) or Justin No (JUSTIN)"
             schema: 
               type: string
+          - 
+            name: "flatten"
+            in: "query"
+            description: "Flatten file"
+            schema:
+              type: boolean
+              default: false
+              
     /files/criminal: 
       get: 
         responses: 
