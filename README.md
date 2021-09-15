@@ -1,3 +1,5 @@
+[![Lifecycle:Stable](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/jc-interface-client/)
+
 # jc-interface-client
 
 
@@ -14,7 +16,6 @@ Generating Clients:
 	2. Run generate-jc-clients. It may take a while to run this script, let it run.
 
 	Manual: 
-
 	1. Open up NSwagStudio
 	2. Load the NSwagConfig/*.nswag configurations
 	3. Paste in the updated OpenAPI (OAS3.0) specification JSON from step 2
