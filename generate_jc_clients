@@ -3,14 +3,11 @@ input_raml_folder="./API References/"
 
 cd "${input_raml_folder}"
 echo "Replacing baseUri"
-sed -i 's,baseUri:.*$,,g' *.raml
+sed -i 's,baseUri:.*$,,g' /tmp/app/dist/**/*
 
 echo "Converting RAML to OAS files - then generating clients."
-for filename in *.raml; 
+for filename in *.yaml; 
    do
 		name=`echo "$filename" | cut -d'.' -f1`
-		echo "Converting $filename to $name-oas3.json"
-        oas-raml-converter --from RAML --to OAS30 $filename > $name-oas3.json
-		json2yaml ./$name-oas3.json > ./$name-oas3.yml
-		nswag openapi2csclient /runtime:NetCore31 /input:$name-oas3.yml /classname:${name}Client /namespace:JCCommon.Clients.$name /output:../Clients/${name}Client.cs /generateBaseUrlProperty:false /useBaseUrl:false /exposeJsonSerializerSettings:true /operationGenerationMode:SingleClientFromPathSegments
+		nswag openapi2csclient /runtime:NetCore31 /input:$name.yaml /classname:${name}Client /namespace:JCCommon.Clients.$name /output:../Clients/${name}Client.cs /generateBaseUrlProperty:false /useBaseUrl:false /exposeJsonSerializerSettings:true /operationGenerationMode:SingleClientFromPathSegments
  done
